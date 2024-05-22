@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /*base button*/
+    .btn{
+        font-size: larger;
+        @apply relative;
+        @apply border-2 p-2 rounded-md;
+    }
+    .btn::before {
+        content: "";
+        @apply absolute top-1 left-0 w-full h-full -z-10;
+        @apply p-0 rounded-md;
+    }
+
+    .btn:hover{
+        @apply transition-location delay-300 duration-300 top-1;
+    }
+
+    .btn::before:hover {
+        @apply transition-location duration-75 top-0;
+    }
+
+    /* .btn:active{
+        transform: scale(0.99);
+    } */
+
+    /*primary button*/
+    .btn-primary {
+        @apply bg-primary-400 border-highlight-700 text-highlight-700;
+    }
+
+    .btn-primary::before {
+        @apply bg-highlight-700 border-highlight-700;
+    }
+
+    .btn-primary:active{
+        @apply bg-primary-500 border-highlight-800;
+    }
+
+    .btn-primary::before:active {
+        @apply bg-highlight-800 border-highlight-800;
+    }
+
+    /*secondary button*/
+    .btn-secondary {
+        @apply bg-secondary-400 border-highlight-700 text-highlight-700;
+    }
+
+    .btn-secondary::before {
+        @apply bg-highlight-700 border-highlight-700;
+    }
+
+    .btn-secondary:active{
+        @apply bg-secondary-500 border-highlight-800;
+    }
+
+    .btn-secondary::before:active {
+        @apply bg-highlight-800 border-highlight-800;
+    }
+
+}
