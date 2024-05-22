@@ -6,10 +6,9 @@ import BottomToolbar from './components/BottomToolbar.vue'
 
 <template>
 
-<div>
-  <div class="grid grid-cols-4 grid-rows-4">
-    <SideToolbar class="row-span-3 col-span-1"/>
-    <DrawingCanvas class="row-span-3 col-span-3"
+  <div class="grid grid-cols-10 grid-rows-10 w-full h-[48rem]">
+    <SideToolbar class="row-span-10 col-span-3"/>
+    <DrawingCanvas class="row-span-7 col-span-7"
       @mouseDown="console.log('mouse down')"
       @mouseDrag="console.log('mouse drag')"
       @mouseUp="console.log('mouse up')"
@@ -20,13 +19,13 @@ import BottomToolbar from './components/BottomToolbar.vue'
       @keyDown="console.log('key down')"
       @keyUp="console.log('key up')"
       @keyPress="console.log('key press')"
-      @frame="console.log('frame')"
+      @frame=""
       @resize="console.log('resize')"
       @scroll="console.log('scroll')"
     />
-    <BottomToolbar class="row-span-1 col-span-4 bg-green-400"/>
+    <BottomToolbar class="row-span-3 col-span-7 bg-green-400"/>
   </div>
-</div>
+
 </template>
 
 <style scoped>
