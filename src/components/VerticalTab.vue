@@ -1,11 +1,11 @@
 <template>
 <div @click="handleClick" class="
     p-6 flex space-x-2
-    text-xl text-primary-300 hover:text-primary-400 
-    bg-highlight-800 hover:bg-highlight-600 
+    text-xl hover:text-primary-400 
+    hover:bg-highlight-600 
     rounded-l-xl
-    border-b-2 border-t-2 border-l-2 border-primary-400 hover:border-primary-500"
-    :class="props.tabId === props.activeTab ? 'text-primary-400 bg-highlight-600 border-primary-500' : ''"
+    border-b-2 border-t-2 border-l-2 hover:border-primary-500"
+    :class="props.tabId == props.activeTab ? 'text-primary-400 bg-highlight-600 border-primary-500' : 'text-primary-300 bg-highlight-800 border-primary-400'"
     >
     <slot></slot>
 </div>
