@@ -11,7 +11,8 @@
     }
     .btn::before {
         content: "";
-        @apply absolute top-1 left-0 w-full h-full -z-10;
+        height: 10%;
+        @apply absolute -bottom-1 left-0 w-full;
         @apply p-0 rounded-md;
     }
 
@@ -20,7 +21,7 @@
     }
 
     .btn::before:hover {
-        @apply transition-location duration-75 top-0;
+        @apply transition-location duration-75 hidden;
     }
 
     /* .btn:active{
@@ -33,7 +34,7 @@
     }
 
     .btn-primary::before {
-        @apply bg-red-700 border-red-700;
+        @apply bg-highlight-700 border-highlight-700;
     }
 
     .btn-primary:active{
