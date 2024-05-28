@@ -23,7 +23,7 @@ import BottomToolbar from './components/BottomToolbar.vue'
       @resize="console.log('resize')"
       @scroll="console.log('scroll')"
     />
-    <BottomToolbar class="row-span-3 col-span-7 bg-green-400"/>
+    <BottomToolbar class="row-span-3 col-span-7"/>
   </div>
 
 </template>
