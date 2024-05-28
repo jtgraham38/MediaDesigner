@@ -1,7 +1,7 @@
 <template>   
     <div class="h-full">
         <div class="flex flex-col h-full w-full">
-            <div class="flex w-full">
+            <div class="flex w-full bg-highlight-900">
                 <slot name="tabs">
                     
                 </slot>
