@@ -10,8 +10,12 @@
                     h-full
                     bg-highlight-800
                     rounded-tl-xl
-                    border-b-2 border-t-2 border-l-2 border-primary-400
-                "></div>
+                    border-2 border-primary-400
+                ">
+                    <slot name="funcs"
+
+                    </slot>
+                </div>
             </div>
             <div class="
                 p-2 h-full w-full overflow-y-auto text-primary-200 bg-highlight-600
