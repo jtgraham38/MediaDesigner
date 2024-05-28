@@ -72,6 +72,11 @@
                         <p>AI content</p>
                     </div>
                 </template>
+
+                <template #funcs>
+                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </template>
             </VerticalTabView>
         </div>
     </div>

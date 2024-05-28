@@ -30,6 +30,7 @@
 
                 <template #funcs>
                     <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-secondary">Cancel</button>
                 </template>
             </HorizontalTabView>
         </div>

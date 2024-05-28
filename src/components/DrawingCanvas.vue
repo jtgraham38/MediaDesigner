@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-highlight-900">
         <canvas ref="canvas" width="800" height="600"></canvas>
     </div>
 </template>

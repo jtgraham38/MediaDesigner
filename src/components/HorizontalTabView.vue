@@ -11,6 +11,7 @@
                     bg-highlight-800
                     rounded-tl-xl
                     border-2 border-primary-400
+                    flex justify-start align-items-center space-x-2 pt-2 pb-3 px-2
                 ">
                     <slot name="funcs">
             
