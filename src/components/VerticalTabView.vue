@@ -1,12 +1,22 @@
 <template>   
-    <div class="bg-highlight-600 ">
-        <div class="flex space-x-2 h-full">
-            <div class="flex-noneflex flex-col h-full bg-highlight-800">
+    <div class="w-full">
+        <div class="flex h-full w-full">
+            <div class="flex flex-col h-full">
                 <slot name="tabs">
                     
                 </slot>
+
+                <div class="
+                    h-full
+                    bg-highlight-800
+                    rounded-tl-xl
+                    border-b-2 border-t-2 border-l-2 border-primary-400
+                "></div>
             </div>
-            <div class="p-2 h-full w-full overflow-y-auto text-primary-200">
+            <div class="
+                p-2 h-full w-full overflow-y-auto text-primary-200 bg-highlight-600
+                border-b-2 border-t-2 border-r-2 border-primary-400 hover:border-primary-500
+            ">
                 <slot name="content">
                     
                 </slot>

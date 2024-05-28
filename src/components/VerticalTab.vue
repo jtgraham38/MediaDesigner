@@ -1,16 +1,27 @@
 <template>
-<div @click="handleClick" class="p-6 text-xl hover:bg-highlight-900 text-primary-300 hover:text-primary-400 flex space-x-2 border-b-2 border-primary-400 hover:border-primary-500">
+<div @click="handleClick" class="
+    p-6 flex space-x-2
+    text-xl text-primary-300 hover:text-primary-400 
+    bg-highlight-800 hover:bg-highlight-600 
+    rounded-l-xl
+    border-b-2 border-t-2 border-l-2 border-primary-400 hover:border-primary-500"
+    :class="props.tabId === props.activeTab ? 'text-primary-400 bg-highlight-600 border-primary-500' : ''"
+    >
     <slot></slot>
 </div>
 </template>
     
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { reactive } from 'vue';
 
 //define props
 const props = defineProps({
     tabId: {
         type: String,
+        required: true,
+    },
+    activeTab: {
+        type: reactive,
         required: true,
     }
 })
