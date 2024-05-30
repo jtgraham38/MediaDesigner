@@ -1,15 +1,37 @@
 <template>
     <div class="bg-highlight-900">
-        <canvas ref="canvas" width="800" height="600"></canvas>
+        
+        <div class="
+            w-full p-2 
+            bg-highlight-600
+            border-2 border-primary-400
+            text-primary-400
+            "
+        >
+            <span class="mr-2">Aspect Ratio:</span>
+            <div class="inline-flex space-x-2">
+                <button class="btn btn-primary" @click="aspectRatio=1"> 1:1 </button>
+                <button class="btn btn-primary" @click="aspectRatio=4/3"> 4:3 </button>
+                <button class="btn btn-primary" @click="aspectRatio=16/9"> 16:9 </button>
+                {{ aspectRatio }}
+            </div>
+        </div>
+        <div ref="container" class="w-full h-full">
+            <canvas ref="canvas" class="bg-white"></canvas>
+        </div>
     </div>
 </template>
   
 <script setup>
-import { ref, onMounted, defineEmits } from 'vue'
+import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
 
 //references to ui elements
 const canvas = ref(null)
+const container = ref(null)
+
+//state vars for the canvas
+const aspectRatio = ref(1)
 
 //define events that can be emitted
 const emit = defineEmits([
@@ -30,8 +52,16 @@ const emit = defineEmits([
 
 //initialize paper.js
 onMounted(() => {
+
+
+
     //init paper
     paper.setup(canvas.value)
+    canvas.value.style.width = null     //delete the overriding width style attribute
+    canvas.value.style.height = null    //delete the overriding height style attribute
+
+    //set the canvas size to fit inside the container at the new aspect ratio
+    resizeCanvas()
 
     //emit event when mouse is pressed
     paper.view.onMouseDown = (event) => {
@@ -107,6 +137,26 @@ onMounted(() => {
     });
 
 })
+
+//resize the canvas when the aspect ratio changes
+watch(aspectRatio, () => {
+    resizeCanvas()
+})
+
+//resize the canvas
+function resizeCanvas() {
+    //set the canvas size to fit inside the container at the new aspect ratio
+    const maxHeight = container.value.clientHeight
+    const maxWidth = container.value.clientWidth
+
+    const height = Math.floor(Math.min(maxWidth / aspectRatio.value, maxHeight))
+    const width = Math.floor(height * aspectRatio.value)
+
+    paper.view.viewSize.width = width
+    paper.view.viewSize.height = height
+}
+    
+
 </script>
   
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -6,7 +6,7 @@ import BottomToolbar from './components/BottomToolbar.vue'
 
 <template>
 
-  <div class="grid grid-cols-10 grid-rows-10 w-full h-[48rem]">
+  <div class="grid grid-cols-10 grid-rows-10 w-[72rem] h-[48rem]">
     <SideToolbar class="row-span-10 col-span-3"/>
     <DrawingCanvas class="row-span-7 col-span-7"
       @mouseDown="console.log('mouse down')"
