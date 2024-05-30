@@ -13,7 +13,7 @@
                 <button class="btn btn-primary" @click="aspectRatio=1"> 1:1 </button>
                 <button class="btn btn-primary" @click="aspectRatio=4/3"> 4:3 </button>
                 <button class="btn btn-primary" @click="aspectRatio=16/9"> 16:9 </button>
-                {{ aspectRatio }}
+                <button class="btn btn-primary" @click="aspectRatio=16/10"> 16:10 </button>
             </div>
         </div>
         <div ref="container" class="w-full h-full">
@@ -131,7 +131,7 @@ onMounted(() => {
     //draw a circle
     //eslint-disable-next-line
     var path = new paper.Path({
-        segments: [[30, 150], [30, 100], [80, 100], [80, 150]],
+        segments: [[600, 150], [600, 100], [680, 100], [680, 150]],
         strokeColor: 'black',
         closed: true
     });
@@ -152,8 +152,7 @@ function resizeCanvas() {
     const height = Math.floor(Math.min(maxWidth / aspectRatio.value, maxHeight))
     const width = Math.floor(height * aspectRatio.value)
 
-    paper.view.viewSize.width = width
-    paper.view.viewSize.height = height
+    paper.view.setViewSize(width, height)
 }
     
 
