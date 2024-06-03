@@ -136,6 +136,7 @@ onMounted(() => {
         closed: true
     });
 
+    console.log("paper", paper)
 })
 
 //resize the canvas when the aspect ratio changes
