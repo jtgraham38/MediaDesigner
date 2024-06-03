@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-highlight-900">
+    <div class="bg-highlight-900 flex flex-col">
         
         <div class="
             w-full p-2 
