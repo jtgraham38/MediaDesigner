@@ -3,9 +3,20 @@ import DrawingCanvas from './components/DrawingCanvas.vue'
 import SideToolbar from './components/SideToolbar.vue'
 import BottomToolbar from './components/BottomToolbar.vue'
 import TopBar from './components/TopBar.vue'
+
+import { useEditorStore } from './stores/editor'
+
+const editorStore = useEditorStore()
+
+
 </script>
 
 <template>
+  <div class="mb-2 border p-2">
+    {{ editorStore.count }}
+    <button class="btn btn-primary ml-2" @click="editorStore.increment()">add</button>
+  </div>
+
 
   <div class="grid grid-cols-12 grid-rows-12 w-[96rem] h-[64rem]">
     <TopBar class="row-span-1 col-span-12">
