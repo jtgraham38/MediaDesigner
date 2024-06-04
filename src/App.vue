@@ -14,7 +14,7 @@ const editorStore = useEditorStore()
 <template>
   <div class="mb-2 border p-2">
     {{ editorStore.count }}
-    <button class="btn btn-primary ml-2" @click="editorStore.increment()">add</button>
+    <button class="btn btn-primary ml-2">add</button>
   </div>
 
 

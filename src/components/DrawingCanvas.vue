@@ -10,10 +10,13 @@
         >
             <span class="mr-2">Aspect Ratio:</span>
             <div class="inline-flex space-x-2">
-                <button class="btn btn-primary" @click="aspectRatio=1"> 1:1 </button>
-                <button class="btn btn-primary" @click="aspectRatio=4/3"> 4:3 </button>
-                <button class="btn btn-primary" @click="aspectRatio=16/9"> 16:9 </button>
-                <button class="btn btn-primary" @click="aspectRatio=16/10"> 16:10 </button>
+                <button class="btn btn-primary" @click="editorStore.setAspectRatio(1)"> 1:1 </button>
+                <button class="btn btn-primary" @click="editorStore.setAspectRatio(4/3)"> 4:3 </button>
+                <button class="btn btn-primary" @click="editorStore.setAspectRatio(16/9)"> 16:9 </button>
+                <button class="btn btn-primary" @click="editorStore.setAspectRatio(16/10)"> 16:10 </button>
+                <div>
+                    {{ editorStore.aspectRatio }}
+                </div>
             </div>
         </div>
         <div ref="container" class="w-full h-full">
@@ -25,13 +28,18 @@
 <script setup>
 import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
+import { useEditorStore } from '../stores/editor';
+import { storeToRefs } from 'pinia';
+
+//create store
+const editorStore = useEditorStore()
 
 //references to ui elements
 const canvas = ref(null)
 const container = ref(null)
 
-//state vars for the canvas
-const aspectRatio = ref(1)
+//local refs from store
+const { aspectRatio } = storeToRefs(editorStore)
 
 //define events that can be emitted
 const emit = defineEmits([
@@ -52,11 +60,8 @@ const emit = defineEmits([
 
 //initialize paper.js
 onMounted(() => {
-
-
-
     //init paper
-    paper.setup(canvas.value)
+    editorStore.setPaper(paper.setup(canvas.value))
     canvas.value.style.width = null     //delete the overriding width style attribute
     canvas.value.style.height = null    //delete the overriding height style attribute
 
@@ -128,15 +133,14 @@ onMounted(() => {
         emit('scroll', event)
     }
 
-    //draw a circle
-    //eslint-disable-next-line
-    var path = new paper.Path({
-        segments: [[600, 150], [600, 100], [680, 100], [680, 150]],
-        strokeColor: 'black',
-        closed: true
-    });
+    //draw a line using the store
+    editorStore.addLine({
+        from: [5, 35],
+        to: [80, 300],
+        strokeColor: 'black'
+    })
 
-    console.log("paper", paper)
+    console.log('paper.js initialized in store', editorStore.paper)
 })
 
 //resize the canvas when the aspect ratio changes
@@ -149,11 +153,11 @@ function resizeCanvas() {
     //set the canvas size to fit inside the container at the new aspect ratio
     const maxHeight = container.value.clientHeight
     const maxWidth = container.value.clientWidth
-
+    
     const height = Math.floor(Math.min(maxWidth / aspectRatio.value, maxHeight))
     const width = Math.floor(height * aspectRatio.value)
-
-    paper.view.setViewSize(width, height)
+    console.log(height, width, width/height)
+    editorStore.setCanvasSize(width, height)
 }
     
 
