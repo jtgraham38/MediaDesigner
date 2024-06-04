@@ -8,7 +8,6 @@
             text-primary-400
             "
         >
-            <span class="mr-2">Aspect Ratio:</span>
             <div class="inline-flex space-x-2">
                 tool settings here!
             </div>
