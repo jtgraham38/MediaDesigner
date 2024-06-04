@@ -30,6 +30,8 @@ import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
 import { useEditorStore } from '../stores/editor';
 import { storeToRefs } from 'pinia';
+import pen from '../tools/pen';
+import rectangle from '../tools/rectangle';
 
 //create store
 const editorStore = useEditorStore()
@@ -139,6 +141,11 @@ onMounted(() => {
         to: [80, 300],
         strokeColor: 'black'
     })
+
+    //add a sample tool
+    editorStore.addTool(pen)
+    editorStore.addTool(rectangle)
+    editorStore.setActiveTool(rectangle)
 
     console.log('paper.js initialized in store', editorStore.paper)
 })
