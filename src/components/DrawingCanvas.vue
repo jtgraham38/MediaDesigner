@@ -10,13 +10,7 @@
         >
             <span class="mr-2">Aspect Ratio:</span>
             <div class="inline-flex space-x-2">
-                <button class="btn btn-primary" @click="editorStore.setAspectRatio(1)"> 1:1 </button>
-                <button class="btn btn-primary" @click="editorStore.setAspectRatio(4/3)"> 4:3 </button>
-                <button class="btn btn-primary" @click="editorStore.setAspectRatio(16/9)"> 16:9 </button>
-                <button class="btn btn-primary" @click="editorStore.setAspectRatio(16/10)"> 16:10 </button>
-                <div>
-                    {{ editorStore.aspectRatio }}
-                </div>
+                tool settings here!
             </div>
         </div>
         <div ref="container" class="w-full h-full">

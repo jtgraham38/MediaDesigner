@@ -6,7 +6,9 @@
             text-primary-300
             border-2 border-primary-400 rounded-t-xl
         ">
-            <slot></slot>
+            <div class="w-full h-full flex items-center">
+                <slot></slot>
+            </div>
         </div>
 </template>
   
