@@ -53,8 +53,116 @@
 
                 <template #content>
                     activeTab: {{ activeTab }}
-                    <div v-show="activeTab === 1">
-                        <p>Draw content</p>
+                    <div v-show="activeTab === 1" class="columns-3 gap-2">
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="
+                            relative
+                            mb-2
+                        ">
+                            <div class="h-0" style="padding-bottom: 100%;">
+                                <div class="
+                                    absolute top-0 left-0
+                                    w-full h-full
+                                    p-2
+                                    bg-highlight-700
+                                    border border-primary-400 rounded-xl
+                                    grid place-items-center
+                                ">
+                                Pen
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div v-show="activeTab === 2">
                         <p>Shapes content</p>
@@ -86,6 +194,8 @@
 import { ref } from 'vue'
 import VerticalTabView from './VerticalTabView.vue';
 import VerticalTab from './VerticalTab.vue';
+import { drawTools } from '../tools';
+
 
 //track the active tab
 const activeTab = ref(1)

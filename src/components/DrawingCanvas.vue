@@ -23,8 +23,8 @@ import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
 import { useEditorStore } from '../stores/editor';
 import { storeToRefs } from 'pinia';
-import pen from '../tools/pen';
-import rectangle from '../tools/rectangle';
+import pen from '../tools/draw/pen';
+import rectangle from '../tools/shapes/rectangle';
 
 //create store
 const editorStore = useEditorStore()
