@@ -31,7 +31,6 @@
 import { ref, reactive } from 'vue';
 import { useEditorStore } from '../stores/editor';
 import { defineProps } from 'vue';
-import { Tool } from 'paper';
 
 //define the tool prop
 const props = defineProps(['tool'])
