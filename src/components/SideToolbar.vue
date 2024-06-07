@@ -52,132 +52,29 @@
                 </template>
 
                 <template #content>
-                    activeTab: {{ activeTab }}
-                    <div v-show="activeTab === 1" class="columns-3 gap-2">
+                    <div class="columns-3 gap-2">
+                        <div v-show="activeTab === 1">
 
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
-                        </div>
+                            <SelectorPanel v-for="tool in drawTools" :tool="tool">{{ tool.name }}</SelectorPanel>
 
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
+                            
+                            
                         </div>
-
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
+                        <div v-show="activeTab === 2">
+                            <SelectorPanel v-for="tool in shapeTools" :tool="tool">{{ tool.name }}</SelectorPanel>
                         </div>
-
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
+                        <div v-show="activeTab === 3">
+                            <p>Text content</p>
                         </div>
-
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
+                        <div v-show="activeTab === 4">
+                            <p>Media content</p>
                         </div>
-
-                        <div class="
-                            relative
-                            mb-2
-                        ">
-                            <div class="h-0" style="padding-bottom: 100%;">
-                                <div class="
-                                    absolute top-0 left-0
-                                    w-full h-full
-                                    p-2
-                                    bg-highlight-700
-                                    border border-primary-400 rounded-xl
-                                    grid place-items-center
-                                ">
-                                Pen
-                                </div>
-                            </div>
+                        <div v-show="activeTab === 5">
+                            <p>Tools content</p>
                         </div>
-                        
-                    </div>
-                    <div v-show="activeTab === 2">
-                        <p>Shapes content</p>
-                    </div>
-                    <div v-show="activeTab === 3">
-                        <p>Text content</p>
-                    </div>
-                    <div v-show="activeTab === 4">
-                        <p>Media content</p>
-                    </div>
-                    <div v-show="activeTab === 5">
-                        <p>Tools content</p>
-                    </div>
-                    <div v-show="activeTab === 6">
-                        <p>AI content</p>
+                        <div v-show="activeTab === 6">
+                            <p>AI content</p>
+                        </div>
                     </div>
                 </template>
 
@@ -194,8 +91,9 @@
 import { ref } from 'vue'
 import VerticalTabView from './VerticalTabView.vue';
 import VerticalTab from './VerticalTab.vue';
+import SelectorPanel from './SelectorPanel.vue';
 import { drawTools } from '../tools';
-
+import { shapeTools } from '../tools';
 
 //track the active tab
 const activeTab = ref(1)

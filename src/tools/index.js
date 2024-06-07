@@ -1,16 +1,16 @@
 import pen from './draw/pen'
 import rectangle from './shapes/rectangle'
+import circle from './shapes/circle'
 
 //define tools for the drawing tabe
 const drawTools = [
-    pen,
-    rectangle
+    pen
 ]
 
 //define tools for the editing tab
-const editTools = [
-    pen,
-    rectangle
+const shapeTools = [
+    rectangle,
+    circle
 ]
 
 //todo: add more tools
@@ -18,5 +18,5 @@ const editTools = [
 //export collections of tools
 export {
     drawTools,
-    editTools
+    shapeTools
 }

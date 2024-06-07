@@ -25,6 +25,7 @@ import { useEditorStore } from '../stores/editor';
 import { storeToRefs } from 'pinia';
 import pen from '../tools/draw/pen';
 import rectangle from '../tools/shapes/rectangle';
+import circle from '../tools/shapes/circle';
 
 //create store
 const editorStore = useEditorStore()
@@ -138,7 +139,7 @@ onMounted(() => {
     //add a sample tool
     editorStore.addTool(pen)
     editorStore.addTool(rectangle)
-    editorStore.setActiveTool(rectangle)
+    editorStore.setActiveTool(circle)
 
     console.log('paper.js initialized in store', editorStore.paper)
 })

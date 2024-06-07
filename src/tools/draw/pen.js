@@ -1,7 +1,8 @@
-import { Tool, Path } from 'paper';
+import { Path } from 'paper';
+import EditorTool from '../editorTool';
 
 //create the tool
-const tool = new Tool();
+const tool = new EditorTool("Pen", "pen");
 
 //define tool properties
 var path;
