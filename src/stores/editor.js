@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { Point, Path } from 'paper'
 
 export const useEditorStore = defineStore('editor', {
     state: () => {
