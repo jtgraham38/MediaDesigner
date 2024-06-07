@@ -34,7 +34,6 @@ import { defineProps } from 'vue';
 
 //define the tool prop
 const props = defineProps(['tool'])
-console.log(props.tool)
 
 //get editor store
 const editorStore = useEditorStore()

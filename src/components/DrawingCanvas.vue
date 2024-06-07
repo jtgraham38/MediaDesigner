@@ -23,9 +23,6 @@ import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
 import { useEditorStore } from '../stores/editor';
 import { storeToRefs } from 'pinia';
-import pen from '../tools/draw/pen';
-import rectangle from '../tools/shapes/rectangle';
-import circle from '../tools/shapes/circle';
 
 //create store
 const editorStore = useEditorStore()
@@ -128,20 +125,6 @@ onMounted(() => {
     paper.view.onScroll = (event) => {
         emit('scroll', event)
     }
-
-    //draw a line using the store
-    editorStore.addLine({
-        from: [5, 35],
-        to: [80, 300],
-        strokeColor: 'black'
-    })
-
-    //add a sample tool
-    editorStore.addTool(pen)
-    editorStore.addTool(rectangle)
-    editorStore.setActiveTool(circle)
-
-    console.log('paper.js initialized in store', editorStore.paper)
 })
 
 //resize the canvas when the aspect ratio changes
