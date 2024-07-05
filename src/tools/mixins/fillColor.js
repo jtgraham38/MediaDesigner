@@ -2,7 +2,7 @@ import ToolMixin from './baseToolMixin'
 
 const tool = new ToolMixin();
 
-tool.toolId = "fillColor";
+tool._toolMixinId = "fillColor";
 
 tool.setFillColor = function(color) {
     this.fillColor = color;

@@ -8,9 +8,7 @@
             text-primary-400
             "
         >
-            <div class="inline-flex space-x-2">
-                tool settings here!
-            </div>
+            <ToolSettings></ToolSettings>
         </div>
         <div ref="container" class="w-full h-full">
             <canvas ref="canvas" class="bg-white"></canvas>
@@ -23,6 +21,7 @@ import { ref, onMounted, defineEmits, watch } from 'vue'
 import paper from 'paper'
 import { useEditorStore } from '../stores/editor';
 import { storeToRefs } from 'pinia';
+import ToolSettings from './ToolSettings.vue'
 
 //create store
 const editorStore = useEditorStore()
