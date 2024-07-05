@@ -1,13 +1,13 @@
 <template>   
     <div class="inline-flex space-x-2">
         <div v-if="activeTool?._toolMixins.includes('strokeColor')">
-            <input type="color"/>
-            Stroke color
+            <input type="color" v-model="newStrokeColor">
+            Stroke color <span>{{ newStrokeColor }}</span>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('fillColor')">
-            <input type="color"/>
-            Fill color
+            <input type="color" v-model="newFillColor"/>
+            Fill color <span>{{ newFillColor }}</span>
         </div>
 
     </div>
@@ -25,9 +25,22 @@ const editorStore = useEditorStore()
 //get the active tool from the store
 const activeTool = ref(null)
 
+const newStrokeColor = ref(editorStore?.paper?.tool?.strokeColor)
+const newFillColor = ref(editorStore?.paper?.tool?.fillColor)
+
+
+//switch the local tool
 watch(() => editorStore?.paper?.tool, (newVal, oldVal) => {
     activeTool.value = newVal
-    console.log("ACTIVE TOOL CHANGED", activeTool.value)
+})
+
+//watchers for updated propert values
+watch(() => newStrokeColor.value, (newVal, oldVal) => {
+    editorStore.setToolProperty('strokeColor', newStrokeColor.value)
+})
+
+watch(() => newFillColor.value, (newVal, oldVal) => {
+    editorStore.setToolProperty('fillColor', newFillColor.value)
 })
 
 </script>

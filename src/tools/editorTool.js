@@ -7,6 +7,12 @@ export default class EditorTool extends Tool {
         this.name = name
         this.icon = icon
         this._toolMixins = []
+
+        //set default properties
+        this.strokeWidth = 1
+        this.strokeColor = 'black'
+        this.fillColor = 'transparent'
+        this.opacity = 1
     }
 
     //add a mixin to the tool (only used by mixins)
