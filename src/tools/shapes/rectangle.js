@@ -23,8 +23,8 @@ tool.onMouseDown = function(event) {
 tool.onMouseUp = function(event) {
     //complete the rectangle when the mouse is released
     rectangle = new Path.Rectangle(start, event.point);
-    rectangle.strokeColor = 'black';
-    console.log(rectangle, "rectangle");
+    rectangle.strokeColor = tool.strokeColor;
+    rectangle.fillColor = tool.fillColor;
 }
 
 export default tool;

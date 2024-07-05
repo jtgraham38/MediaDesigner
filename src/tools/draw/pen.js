@@ -16,7 +16,7 @@ tool.onMouseDown = function(event) {
     //create a new path every time the mouse is clicked
     path = new Path();
     path.add(event.point);
-    path.strokeColor = 'black';
+    path.strokeColor = tool.strokeColor;
 }
 
 tool.onMouseDrag = function(event) {

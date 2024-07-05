@@ -28,6 +28,7 @@ export const useEditorStore = defineStore('editor', {
             this.paper.tools.push(tool)
         },
         setActiveTool(tool){
+            //TODO: copy settings from previous tool to new tool
             this.paper.tool = tool
         },
         setToolProperty(property, value){
