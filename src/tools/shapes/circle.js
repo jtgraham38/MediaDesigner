@@ -5,14 +5,12 @@ import useStrokeColor from '../mixins/strokeColor';
 
 
 //create the tool
-let tool = new EditorTool("Circle", "circle");
+const tool = new EditorTool("Circle", "circle");
 
 //define the features the tool supports
 tool.addMixin(useFillColor);
 tool.addMixin(useStrokeColor);
 
-tool.setFillColor("green");
-tool.setStrokeColor("red");
 
 //define tool properties
 var circle;

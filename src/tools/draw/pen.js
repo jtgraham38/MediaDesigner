@@ -1,8 +1,12 @@
 import { Path } from 'paper';
 import EditorTool from '../editorTool';
+import useStrokeColor from '../mixins/strokeColor';
 
 //create the tool
 const tool = new EditorTool("Pen", "pen");
+
+//define the features the tool supports
+tool.addMixin(useStrokeColor);
 
 //define tool properties
 var path;

@@ -1,8 +1,14 @@
 import { Path } from 'paper';
 import EditorTool from '../editorTool';
+import useFillColor from '../mixins/fillColor';
+import useStrokeColor from '../mixins/strokeColor';
 
 //create the tool
 const tool = new EditorTool("Rectangle", "rectangle");
+
+//define the features the tool supports
+tool.addMixin(useFillColor);
+tool.addMixin(useStrokeColor);
 
 //define tool properties
 var rectangle;
