@@ -1,9 +1,18 @@
 import { Path } from 'paper';
 import EditorTool from '../editorTool';
+import useFillColor from '../mixins/fillColor';
+import useStrokeColor from '../mixins/strokeColor';
 
 
 //create the tool
-const tool = new EditorTool("Circle", "circle");
+let tool = new EditorTool("Circle", "circle");
+
+//define the features the tool supports
+tool.addMixin(useFillColor);
+tool.addMixin(useStrokeColor);
+
+tool.setFillColor("green");
+tool.setStrokeColor("red");
 
 //define tool properties
 var circle;
@@ -20,8 +29,10 @@ tool.onMouseUp = function(event) {
     const radius = Math.sqrt(Math.pow(event.point.x - midpoint.x, 2) + Math.pow(event.point.y - midpoint.y, 2));
 
     circle = new Path.Circle(midpoint, radius);
-    circle.strokeColor = 'black';
+    circle.strokeColor = this.strokeColor;
+    circle.fillColor = this.fillColor;
     console.log(circle, "circle");
 }
+
 
 export default tool;
