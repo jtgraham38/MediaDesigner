@@ -10,6 +10,11 @@
             Fill color <span>{{ newFillColor }}</span>
         </div>
 
+        <div v-if="activeTool?._toolMixins.includes('strokeWidth')">
+            <input type="number" v-model="editorStore.paper.tool.strokeWidth" min="1"/>
+            Stroke width <span>{{ editorStore.paper.tool.strokeWidth }}</span>
+        </div>
+
     </div>
 </template>
   
@@ -27,11 +32,17 @@ const activeTool = ref(null)
 
 const newStrokeColor = ref(editorStore?.paper?.tool?.strokeColor)
 const newFillColor = ref(editorStore?.paper?.tool?.fillColor)
+const newStrokeWidth = ref(editorStore?.paper?.tool?.strokeWidth)
 
 
 //switch the local tool
 watch(() => editorStore?.paper?.tool, (newVal, oldVal) => {
     activeTool.value = newVal
+
+    //reset the local tool properties
+    newStrokeColor.value = "black"
+    newFillColor.value = "transparent"
+    newStrokeWidth.value = 1
 })
 
 //watchers for updated propert values
@@ -41,6 +52,10 @@ watch(() => newStrokeColor.value, (newVal, oldVal) => {
 
 watch(() => newFillColor.value, (newVal, oldVal) => {
     editorStore.setToolProperty('fillColor', newFillColor.value)
+})
+
+watch(() => newStrokeWidth, (newVal, oldVal) => {
+    editorStore.setToolProperty('strokeWidth', newFillColor.value)
 })
 
 </script>

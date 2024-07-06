@@ -2,6 +2,7 @@ import { Path } from 'paper';
 import EditorTool from '../editorTool';
 import useFillColor from '../mixins/fillColor';
 import useStrokeColor from '../mixins/strokeColor';
+import useStrokeWidth from '../mixins/strokeWidth';
 
 
 //create the tool
@@ -10,6 +11,7 @@ const tool = new EditorTool("Circle", "circle");
 //define the features the tool supports
 tool.addMixin(useFillColor);
 tool.addMixin(useStrokeColor);
+tool.addMixin(useStrokeWidth);
 
 
 //define tool properties
@@ -29,7 +31,7 @@ tool.onMouseUp = function(event) {
     circle = new Path.Circle(midpoint, radius);
     circle.strokeColor = this.strokeColor;
     circle.fillColor = this.fillColor;
-    console.log(circle, "circle");
+    circle.strokeWidth = this.strokeWidth;
 }
 
 
