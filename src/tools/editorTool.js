@@ -21,6 +21,14 @@ export default class EditorTool extends Tool {
         Object.assign(this, mixin)
     }
 
+    //reset all tool properties to defaults
+    reset() {
+        this.strokeWidth = 1
+        this.strokeColor = 'black'
+        this.fillColor = 'transparent'
+        this.opacity = 1
+    }
+
     //check if the tool supports a mixin
     supportsMixin(desired) {
         //they are all string keys
