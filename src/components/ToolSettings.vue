@@ -1,17 +1,17 @@
 <template>   
     <div class="inline-flex space-x-2">
         <div v-if="activeTool?._toolMixins.includes('strokeColor')">
-            <input type="color" v-model="newStrokeColor">
+            <input type="color" v-model="newStrokeColor" class="w-8">
             Stroke color <span>{{ newStrokeColor }}</span>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('fillColor')">
-            <input type="color" v-model="newFillColor"/>
+            <input type="color" v-model="newFillColor" class="w-8"/>
             Fill color <span>{{ newFillColor }}</span>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('strokeWidth')">
-            <input type="number" v-model="editorStore.paper.tool.strokeWidth" min="1"/>
+            <input type="number" v-model="editorStore.paper.tool.strokeWidth" min="1" class="w-8 p-1"/>
             Stroke width <span>{{ editorStore.paper.tool.strokeWidth }}</span>
         </div>
 

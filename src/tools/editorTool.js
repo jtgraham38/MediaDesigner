@@ -23,6 +23,7 @@ export default class EditorTool extends Tool {
 
     //reset all tool properties to defaults
     reset() {
+        //TODO: add check for if these properties exist on the tool
         this.strokeWidth = 1
         this.strokeColor = 'black'
         this.fillColor = 'transparent'
