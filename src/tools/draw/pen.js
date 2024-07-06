@@ -27,4 +27,10 @@ tool.onMouseDrag = function(event) {
     path.add(event.point);
 }
 
+tool.onMouseUp = function(event) {
+    //complete the path when the mouse is released
+    path.simplify();
+    path.smooth();
+}
+
 export default tool;
