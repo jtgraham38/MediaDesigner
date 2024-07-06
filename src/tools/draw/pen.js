@@ -2,6 +2,7 @@ import { Path } from 'paper';
 import EditorTool from '../editorTool';
 import useStrokeColor from '../mixins/strokeColor';
 import useStrokeWidth from '../mixins/strokeWidth';
+import useStrokeCap from '../mixins/strokeCap';
 
 //create the tool
 const tool = new EditorTool("Pen", "pen");
@@ -9,6 +10,7 @@ const tool = new EditorTool("Pen", "pen");
 //define the features the tool supports
 tool.addMixin(useStrokeColor);
 tool.addMixin(useStrokeWidth)
+tool.addMixin(useStrokeCap)
 
 //define tool properties
 var path;
@@ -20,6 +22,8 @@ tool.onMouseDown = function(event) {
     path.add(event.point);
     path.strokeColor = tool.strokeColor;
     path.strokeWidth = tool.strokeWidth;
+    path.strokeCap = tool.strokeCap;
+    console.log("Stroke cap: " + tool.strokeCap)
 }
 
 tool.onMouseDrag = function(event) {

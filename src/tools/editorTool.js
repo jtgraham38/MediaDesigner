@@ -9,10 +9,7 @@ export default class EditorTool extends Tool {
         this._toolMixins = []
 
         //set default properties
-        this.strokeWidth = 1
-        this.strokeColor = 'black'
-        this.fillColor = 'transparent'
-        this.opacity = 1
+        this.reset()
     }
 
     //add a mixin to the tool (only used by mixins)
@@ -28,6 +25,7 @@ export default class EditorTool extends Tool {
         this.strokeColor = 'black'
         this.fillColor = 'transparent'
         this.opacity = 1
+        this.strokeCap = 'round'
     }
 
     //check if the tool supports a mixin
