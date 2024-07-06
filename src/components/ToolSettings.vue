@@ -1,28 +1,27 @@
 <template>   
     <div class="inline-flex space-x-2">
         <div v-if="activeTool?._toolMixins.includes('strokeColor')">
-            <input type="color" v-model="newStrokeColor" class="w-8">
-            Stroke color <span>{{ newStrokeColor }}</span>
+            <label for="new_stroke_color_input" class="block">Stroke Color:</label>
+            <input type="color" v-model="newStrokeColor" class="w-8" title="Stroke Color" id="new_stroke_color_input">
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('fillColor')">
-            <input type="color" v-model="newFillColor" class="w-8"/>
-            Fill color <span>{{ newFillColor }}</span>
+            <label for="new_fill_color_input" class="block">Fill Color:</label>
+            <input type="color" v-model="newFillColor" class="w-8" title="Fill Color" id="new_fill_color_input"/>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('strokeWidth')">
-            <input type="number" v-model="editorStore.paper.tool.strokeWidth" min="1" class="w-12 p-1"/>
-            Stroke width <span>{{ editorStore.paper.tool.strokeWidth }}</span>
+            <label for="new_stroke_width_input" class="block">Stroke Width</label>
+            <input type="number" v-model="editorStore.paper.tool.strokeWidth" class="w-12 p-1" title="Stroke Width" min="1" id="new_stroke_width_input"/>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('strokeCap')">
-            <select v-model="newStrokeCap">
+            <label for="new_stroke_cap_input" class="block">Stroke Cap:</label>
+            <select v-model="newStrokeCap" title="Stroke Cap" id="new_stroke_cap_input">
                 <option value="square">Square</option>
                 <option value="round">Round</option>
                 <option value="butt">Butt</option>
             </select>
-
-            <div>{{ editorStore?.paper?.tool?.strokeCap }}</div>
         </div>
 
     </div>
