@@ -13,7 +13,6 @@ tool.addMixin(useFillColor);
 tool.addMixin(useStrokeColor);
 tool.addMixin(useStrokeWidth);
 
-
 //define tool properties
 var circle;
 var midpoint;

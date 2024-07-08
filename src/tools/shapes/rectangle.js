@@ -3,6 +3,8 @@ import EditorTool from '../editorTool';
 import useFillColor from '../mixins/fillColor';
 import useStrokeColor from '../mixins/strokeColor';
 import useStrokeWidth from '../mixins/strokeWidth';
+import useStrokeJoin from '../mixins/strokeJoin';
+
 
 //create the tool
 const tool = new EditorTool("Rectangle", "rectangle");
@@ -11,6 +13,8 @@ const tool = new EditorTool("Rectangle", "rectangle");
 tool.addMixin(useFillColor);
 tool.addMixin(useStrokeColor);
 tool.addMixin(useStrokeWidth);
+tool.addMixin(useStrokeJoin);
+
 
 //define tool properties
 var rectangle;
@@ -28,6 +32,7 @@ tool.onMouseUp = function(event) {
     rectangle.strokeColor = tool.strokeColor;
     rectangle.fillColor = tool.fillColor;
     rectangle.strokeWidth = tool.strokeWidth;
+    rectangle.strokeJoin = tool.strokeJoin;
 }
 
 export default tool;

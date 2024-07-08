@@ -24,6 +24,16 @@
             </select>
         </div>
 
+        <div v-if="activeTool?._toolMixins.includes('strokeJoin')">
+            <label for="new_stroke_join_input" class="block">Stroke Join:</label>
+            <select v-model="newStrokeJoin" title="Stroke Join" id="new_stroke_join_input">
+                <option value="round">Round</option>
+                <option value="miter">Miter</option>
+                <option value="bevel">Bevel</option>
+            </select>
+        </div>
+
+
     </div>
 </template>
   
@@ -42,6 +52,7 @@ const newStrokeColor = ref(editorStore?.paper?.tool?.strokeColor)
 const newFillColor = ref(editorStore?.paper?.tool?.fillColor)
 const newStrokeWidth = ref(editorStore?.paper?.tool?.strokeWidth)
 const newStrokeCap = ref(editorStore?.paper?.tool?.strokeCap)
+const newStrokeJoin = ref(editorStore?.paper?.tool?.strokeJoin)
 
 
 //switch the local tool
@@ -53,6 +64,7 @@ watch(() => editorStore?.paper?.tool, (newVal, oldVal) => {
     newFillColor.value = "transparent"
     newStrokeWidth.value = 1
     newStrokeCap.value = "round"
+    newStrokeJoin.value = "miter"
 })
 
 //watchers for updated propert values
@@ -69,6 +81,9 @@ watch(() => newStrokeWidth.value, (newVal, oldVal) => {
 })
 watch(() => newStrokeCap.value, (newVal, oldVal) => {
     editorStore.setToolProperty('strokeCap', newStrokeCap.value)
+})
+watch(() => newStrokeJoin.value, (newVal, oldVal) => {
+    editorStore.setToolProperty('strokeJoin', newStrokeJoin.value)
 })
 
 </script>
