@@ -61,6 +61,7 @@ onMounted(() => {
     resizeCanvas()
 
     //emit event when mouse is pressed
+    /*
     paper.view.onMouseDown = (event) => {
         emit('mouseDown', event)
     }
@@ -124,6 +125,7 @@ onMounted(() => {
     paper.view.onScroll = (event) => {
         emit('scroll', event)
     }
+    */
 })
 
 //resize the canvas when the aspect ratio changes

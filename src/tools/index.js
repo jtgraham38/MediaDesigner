@@ -1,3 +1,4 @@
+import inspector from './inspector'
 import pen from './draw/pen'
 import line from './draw/line'
 import rectangle from './shapes/rectangle'
@@ -7,6 +8,7 @@ import heading from './typography/heading'
 
 //define tools for the drawing tabe
 const drawTools = [
+    inspector,
     pen,
     line
 ]
@@ -27,6 +29,7 @@ const typographyTools = [
 
 //export collections of tools
 export {
+    inspector,
     drawTools,
     shapeTools,
     typographyTools
