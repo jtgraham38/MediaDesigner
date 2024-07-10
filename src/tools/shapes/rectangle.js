@@ -15,15 +15,17 @@ tool.addMixin(useStrokeWidth);
 //define tool properties
 var rectangle;
 var start;
-tool.minDistance = 10;
+tool.minDistance = 1;
 
 tool.onMouseDown = function(event) {
     //create a new path every time the mouse is clicked
     start = event.point;
+    rectangle = new Path.Rectangle(start, start);
 }
 
-tool.onMouseUp = function(event) {
+tool.onMouseDrag = function(event) {
     //complete the rectangle when the mouse is released
+    rectangle.remove();
     rectangle = new Path.Rectangle(start, event.point);
     rectangle.strokeColor = tool.strokeColor;
     rectangle.fillColor = tool.fillColor;
