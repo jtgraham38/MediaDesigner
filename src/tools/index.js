@@ -1,6 +1,7 @@
 import pen from './draw/pen'
 import rectangle from './shapes/rectangle'
 import circle from './shapes/circle'
+import oval from './shapes/oval'
 import heading from './typography/heading'
 
 //define tools for the drawing tabe
@@ -11,7 +12,8 @@ const drawTools = [
 //define tools for the editing tab
 const shapeTools = [
     rectangle,
-    circle
+    circle,
+    oval
 ]
 
 //define tools for the typography tab
