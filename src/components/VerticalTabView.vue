@@ -13,7 +13,7 @@
                     border-2 border-primary-400
                     flex flex-col justify-start align-items-center space-y-2 py-2 px-2
                 ">
-                    <slot name="funcs"
+                    <slot name="funcs">
 
                     </slot>
                 </div>
