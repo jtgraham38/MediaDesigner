@@ -33,6 +33,17 @@
             </select>
         </div>
 
+        <div v-if="activeTool?._toolMixins.includes('dashArray')">
+            <label class="block">Stroke Dash Array:</label>
+            <label for="new_stroke_dash_width_input">Dash Width:</label>
+            <input type="range" v-model="newDashArray[0]" min="0" max="40" title="Stroke Dash Array" id="new_stroke_dash_width_input"/>
+            <label for="new_stroke_gap_width_input">Gap Width:</label>
+            <input type="range" v-model="newDashArray[1]" min="0" max="40" title="Stroke Dash Array" id="new_stroke_gap_width_input"/>
+            <pre>
+                {{ newDashArray }}
+            </pre>
+        </div>
+
 
     </div>
 </template>
@@ -53,6 +64,7 @@ const newFillColor = ref(editorStore?.paper?.tool?.fillColor)
 const newStrokeWidth = ref(editorStore?.paper?.tool?.strokeWidth)
 const newStrokeCap = ref(editorStore?.paper?.tool?.strokeCap)
 const newStrokeJoin = ref(editorStore?.paper?.tool?.strokeJoin)
+const newDashArray = ref(editorStore?.paper?.tool?.dashArray)
 
 
 //switch the local tool
@@ -65,6 +77,7 @@ watch(() => editorStore?.paper?.tool, (newVal, oldVal) => {
     newStrokeWidth.value = 1
     newStrokeCap.value = "round"
     newStrokeJoin.value = "miter"
+    newDashArray.value = [0, 0]
 })
 
 //watchers for updated propert values
@@ -84,6 +97,9 @@ watch(() => newStrokeCap.value, (newVal, oldVal) => {
 })
 watch(() => newStrokeJoin.value, (newVal, oldVal) => {
     editorStore.setToolProperty('strokeJoin', newStrokeJoin.value)
+})
+watch(() => newDashArray.value, (newVal, oldVal) => {
+    editorStore.setToolProperty('dashArray', newDashArray.value)    //pass by reference error here, since it is an array!!!!
 })
 
 </script>

@@ -27,6 +27,7 @@ export default class EditorTool extends Tool {
         this.opacity = 1
         this.strokeCap = 'round'
         this.strokeJoin = 'miter'
+        this.dashArray = [0, 0]
     }
 
     //check if the tool supports a mixin
