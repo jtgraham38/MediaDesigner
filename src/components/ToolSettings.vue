@@ -35,13 +35,20 @@
 
         <div v-if="activeTool?._toolMixins.includes('dashArray')">
             <label class="block">Stroke Dash Array:</label>
-            <label for="new_stroke_dash_width_input">Dash Width:</label>
-            <input type="range" v-model="newDashArray[0]" min="0" max="40" title="Stroke Dash Array" id="new_stroke_dash_width_input"/>
-            <label for="new_stroke_gap_width_input">Gap Width:</label>
-            <input type="range" v-model="newDashArray[1]" min="0" max="40" title="Stroke Dash Array" id="new_stroke_gap_width_input"/>
-            <pre>
-                {{ newDashArray }}
-            </pre>
+            <div>
+                <label for="new_stroke_dash_width_input">Dash Width:</label>
+                <span class="ml-1 inline-grid place-items-center">
+                    <input type="range" v-model="newDashArray[0]" min="0" max="40" title="Dash Width" id="new_stroke_dash_width_input"/>
+                    <div>{{ newDashArray[0] }}</div>
+                </span>
+            </div>
+            <div>
+                <label for="new_stroke_gap_width_input">Gap Width:</label>
+                <span class="ml-1 inline-grid place-items-center">
+                    <input type="range" v-model="newDashArray[1]" min="0" max="40" title="Gap Width" id="new_stroke_gap_width_input"/>
+                    <div>{{ newDashArray[1] }}</div>
+                </span>
+            </div>
         </div>
 
 
@@ -82,25 +89,25 @@ watch(() => editorStore?.paper?.tool, (newVal, oldVal) => {
 
 //watchers for updated propert values
 watch(() => newStrokeColor.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('strokeColor', newStrokeColor.value)
+    editorStore.setToolProperty('strokeColor', newVal)
 })
 
 watch(() => newFillColor.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('fillColor', newFillColor.value)
+    editorStore.setToolProperty('fillColor', newVal)
 })
 
 watch(() => newStrokeWidth.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('strokeWidth', newStrokeWidth.value)
+    editorStore.setToolProperty('strokeWidth', newVal)
 })
 watch(() => newStrokeCap.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('strokeCap', newStrokeCap.value)
+    editorStore.setToolProperty('strokeCap', newVal)
 })
 watch(() => newStrokeJoin.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('strokeJoin', newStrokeJoin.value)
+    editorStore.setToolProperty('strokeJoin', newVal)
 })
 watch(() => newDashArray.value, (newVal, oldVal) => {
-    editorStore.setToolProperty('dashArray', newDashArray.value)    //pass by reference error here, since it is an array!!!!
-})
+    editorStore.setToolProperty('dashArray', [ ...newVal ])
+}, { deep: true })
 
 </script>
   

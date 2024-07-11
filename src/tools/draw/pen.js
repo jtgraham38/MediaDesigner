@@ -3,6 +3,7 @@ import EditorTool from '../editorTool';
 import useStrokeColor from '../mixins/strokeColor';
 import useStrokeWidth from '../mixins/strokeWidth';
 import useStrokeCap from '../mixins/strokeCap';
+import useDashArray from '../mixins/dashArray';
 
 //create the tool
 const tool = new EditorTool("Pen", "pen");
@@ -11,6 +12,7 @@ const tool = new EditorTool("Pen", "pen");
 tool.addMixin(useStrokeColor);
 tool.addMixin(useStrokeWidth)
 tool.addMixin(useStrokeCap)
+tool.addMixin(useDashArray)
 
 //define tool properties
 var path;
@@ -23,6 +25,7 @@ tool.onMouseDown = function(event) {
     path.strokeColor = tool.strokeColor;
     path.strokeWidth = tool.strokeWidth;
     path.strokeCap = tool.strokeCap;
+    path.dashArray = tool.dashArray;
 }
 
 tool.onMouseDrag = function(event) {

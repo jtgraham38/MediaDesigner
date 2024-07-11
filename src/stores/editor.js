@@ -38,5 +38,6 @@ export const useEditorStore = defineStore('editor', {
         setToolProperty(property, value){
             this.paper.tool[property] = value
         }
+
     },
 })
