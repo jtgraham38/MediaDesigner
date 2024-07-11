@@ -3,38 +3,33 @@ import EditorTool from '../editorTool';
 import useFillColor from '../mixins/fillColor';
 import useStrokeColor from '../mixins/strokeColor';
 import useStrokeWidth from '../mixins/strokeWidth';
-import useStrokeJoin from '../mixins/strokeJoin';
-
 
 //create the tool
-const tool = new EditorTool("Rectangle", "rectangle");
+const tool = new EditorTool("Oval", "oval");
 
 //define the features the tool supports
 tool.addMixin(useFillColor);
 tool.addMixin(useStrokeColor);
 tool.addMixin(useStrokeWidth);
-tool.addMixin(useStrokeJoin);
-
 
 //define tool properties
-var rectangle;
+var oval;
 var start;
 tool.minDistance = 1;
 
 tool.onMouseDown = function(event) {
     //create a new path every time the mouse is clicked
     start = event.point;
-    rectangle = new Path.Rectangle(start, start);
+    oval = new Path.Oval(start, start);
 }
 
 tool.onMouseDrag = function(event) {
     //complete the rectangle when the mouse is released
-    rectangle.remove();
-    rectangle = new Path.Rectangle(start, event.point);
-    rectangle.strokeColor = tool.strokeColor;
-    rectangle.fillColor = tool.fillColor;
-    rectangle.strokeWidth = tool.strokeWidth;
-    rectangle.strokeJoin = tool.strokeJoin;
+    oval.remove();
+    oval = new Path.Oval(start, event.point);
+    oval.strokeColor = tool.strokeColor;
+    oval.fillColor = tool.fillColor;
+    oval.strokeWidth = tool.strokeWidth;
 }
 
 export default tool;

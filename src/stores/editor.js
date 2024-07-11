@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { inspector } from '../tools'
 
 export const useEditorStore = defineStore('editor', {
     state: () => {
@@ -11,6 +12,7 @@ export const useEditorStore = defineStore('editor', {
         //  \\  //  setters for settings    \\  //  \\
         setPaper(paper) {
             this.paper = paper
+            this.setActiveTool(inspector)
         },
         setAspectRatio(aspectRatio) {
             this.aspectRatio = aspectRatio

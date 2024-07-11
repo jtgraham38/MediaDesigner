@@ -12,7 +12,7 @@
 
         <div v-if="activeTool?._toolMixins.includes('strokeWidth')">
             <label for="new_stroke_width_input" class="block">Stroke Width</label>
-            <input type="number" v-model="editorStore.paper.tool.strokeWidth" class="w-12 p-1" title="Stroke Width" min="1" id="new_stroke_width_input"/>
+            <input type="number" v-model="editorStore.paper.tool.strokeWidth" class="w-12 p-1" title="Stroke Width" min="0" id="new_stroke_width_input"/>
         </div>
 
         <div v-if="activeTool?._toolMixins.includes('strokeCap')">
