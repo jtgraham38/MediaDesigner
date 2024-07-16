@@ -1,6 +1,7 @@
 import inspector from './inspector'
 import pen from './draw/pen'
 import line from './draw/line'
+import brush from './draw/brush'
 import rectangle from './shapes/rectangle'
 import circle from './shapes/circle'
 import oval from './shapes/oval'
@@ -10,7 +11,8 @@ import heading from './typography/heading'
 const drawTools = [
     inspector,
     pen,
-    line
+    line,
+    brush
 ]
 
 //define tools for the editing tab
