@@ -16,21 +16,23 @@ var selected_segment;
 tool.onMouseDown = function(event) {
 
     //find the object that should be selected
-    tool.select_canvas_entity(event.point);
+    tool.select_canvas_path(event.point);
 
-    //if an item is selected, make it's properties editable
-    hitResult = paper.project.hitTest(event.point);
+    //if a path is selected, check if a part of the path was selected
     if(selected_path){
-        console.log("hitResult.type: " + hitResult.type);
-        if (hitResult.type == 'segment'){
+        hitResult = paper.project.hitTest(event.point, {
+            segments: true,
+            stroke: true,
+            fill: false,
+            tolerance: 50
+        });
+        console.log("hitResult.type: " + hitResult);
+        if (hitResult?.type == 'segment'){
             console.log("segment");
             this.set_selected_segment(hitResult.segment);
         }
-        else if (hitResult.type == 'stroke'){
+        else if (hitResult?.type == 'stroke'){
             console.log("stroke");
-        }
-        else if (hitResult.type == 'fill'){
-            console.log("fill");
         }
     }
 }
@@ -54,7 +56,22 @@ tool.onMouseUp = function(event) {
     }
 }
 
-tool.select_canvas_entity = function(point){
+tool.onKeyDown = function(event){
+    //delete the selected point or path
+    if(event.key == 'delete'){
+        if (selected_segment){
+            selected_segment.remove();
+            this.set_selected_segment(null);
+        }
+        else if(selected_path){
+            selected_path.remove();
+            this.set_selected_path(null);
+        }
+    }
+}
+
+// utility methods made by me with no backing from the paper.js library
+tool.select_canvas_path = function(point){
     hitResult = paper.project.hitTest(point);
 
     //check if a new item was selected

@@ -11,6 +11,9 @@ export const useEditorStore = defineStore('editor', {
     actions: {
         //  \\  //  setters for settings    \\  //  \\
         setPaper(paper) {
+            //temporarily set settings of paper
+            paper.settings.tolerance = 500
+
             this.paper = paper
             this.setActiveTool(inspector)
         },
