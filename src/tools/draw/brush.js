@@ -30,7 +30,6 @@ tool.onMouseDrag = function(event) {
 	
 	path.add(top);
 	path.insert(0, bottom);
-    console.log(path.segments.length)
 	path.smooth();
 }
 
