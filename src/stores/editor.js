@@ -13,7 +13,9 @@ export const useEditorStore = defineStore('editor', {
         setPaper(paper) {
             //temporarily set settings of paper
             paper.settings.hitTolerance = 3
-            console.log(paper)
+            paper.settings.handleSize = 8
+            paper.settings.applyMatrix = true
+            paper.settings.insertItems = true
 
             this.paper = paper
             this.setActiveTool(inspector)
