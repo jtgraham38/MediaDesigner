@@ -20,11 +20,11 @@ tool.onMouseDown = function(event) {
 
     //if a path is selected, check if a part of the path was selected
     if(selected_path){
-        hitResult = paper.project.hitTest(event.point, {
+        hitResult = selected_path.hitTest(event.point, {
             segments: true,
             stroke: true,
             fill: false,
-            tolerance: 50
+            tolerance: 10   //custom tolerance level for point grabbing
         });
         console.log("hitResult.type: " + hitResult);
         if (hitResult?.type == 'segment'){
